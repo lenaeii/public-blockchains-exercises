@@ -49,7 +49,7 @@
 // b. Create a function called "exit" that wraps the call to `process.exit` and
 // prints out the exercise number from a global variable called `exercise`.
 
-let exercise = 0;
+//let exercise = 0;
 
 function exit() {
     console.log('Exercise ' + exercise + ' completed.');
@@ -57,6 +57,7 @@ function exit() {
     console.log('I will not be printed to console :(');
 }
 
+exit();
 // c. Bonus. Did you realize that JavaScript/Node.JS has three different ways
 // of declaring a function?
 
@@ -72,12 +73,14 @@ function exit() {
 // for all three functions? 
 
 // Function expression.
+let exercise = 0;
 const exit3 = function() {
     console.log('Exercise ' + exercise + ' completed.');
     process.exit(0);
     console.log('I will not be printed to console :(');
 };
 
+exit3();
 // Arrow-function equivalent.
 const exit2 = () => {
     console.log('Exercise ' + exercise + ' completed.');
@@ -85,6 +88,7 @@ const exit2 = () => {
     console.log('I will not be printed to console :(');
 };
 
+exit2();
 
 // Exercise 1. NPM Warm Up.
 ///////////////////////////
@@ -139,7 +143,8 @@ exercise = '3a';
 
 // a. Check that the variable METAMASK_ACCOUNT_1 is not empty. Write an 
 // if statement that print a warning message if empty.
-console.log(process.env.METAMASK_ACCOUNT_1);
+require('dotenv').config();
+console.log(process.env.METAMASK_1_ADDRESS);
 
 let privateKey = process.env.METAMASK_PRIVATE_KEY;
 if (privateKey === "") {
@@ -174,6 +179,7 @@ console.log('Num of variables in .env to check: ', variablesToCheck.length);
 
 
 // Solution 1. forEach.
+
 variablesToCheck.forEach(v => {
     if (!process.env[v]) {
         console.log(process.env[v])
@@ -199,8 +205,10 @@ for (let index = 0; index < variablesToCheck.length; index++) {
 //////////////////////////////////////
 exercise = '4a';
 
-const ethers = require("ethers");
+// Import everything
+import { ethers } from "ethers";
 
+//const ethers = require("ethers");
 // a. Create a random wallet and print the address, the private key,
 // and the mnenomic phrase.
 
@@ -217,7 +225,7 @@ console.log();
 // b. Bonus. Print the derivation path of the wallet and check that it is
 // equal to `baseDevPath`. 
 
-exercise = '4b';
+//exercise = '4b';
 
 let baseDevPath = "m/44'/60'/0'/0/";
 
@@ -236,7 +244,7 @@ console.log("Derivation path:", wallet.path);
 // Exercise 5. Bonus. Create a Hierarchical Deterministic Wallet.
 /////////////////////////////////////////////////////////////////
 console.log();
-exercise = 5;
+//exercise = 5;
 
 // From the same wallet, you can derive a deterministic sequence of addresses.
 // First, pick a mnemonic, then create a hierarchical deterministic wallet, 
@@ -253,4 +261,4 @@ for (let i = 0; i < 10; i++) {
   console.log("Private key", i, myWallet.privateKey);
 }
 
-exit();
+//exit();
