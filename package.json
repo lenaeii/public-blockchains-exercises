@@ -1,9 +1,10 @@
 {
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "dotenv": "^16.0.3",
     "ethers": "^6.0.8"
+  },
+  "devDependencies": {
+    "hardhat": "^2.13.0"
   }
-
- 
 }

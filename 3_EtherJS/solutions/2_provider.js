@@ -45,10 +45,10 @@ const ethers = require("ethers");
 
 const providerKey = process.env.INFURA_KEY;
 
-const mainnetInfuraUrl = `${process.env.INFURA_MAINNET}${providerKey}`;
-// console.log(mainnetInfuraUrl);
+const mainnetInfuraUrl = `${process.env.INFURA_MAINNET_API_URL}${providerKey}`;
+console.log(mainnetInfuraUrl);
 const mainnetProvider = new ethers.JsonRpcProvider(mainnetInfuraUrl);
-
+console.log(mainnetProvider);
 // b. Verify that the network's name is "mainnet" and the chain id that theis 1.
 
 // Hint: the value of chain id returned by Ethers JS is of type "BigInt". 
@@ -77,7 +77,7 @@ const network = async () => {
 };
 
 // which you can then call:
-// network();
+//network();
 
 // The second (less compact) notation has the advantage that we can invoke
 // the code only when needed, so it is preferred in this exercise sheet.
@@ -116,12 +116,13 @@ const blockNum = async () => {
 // The testnets of Ethereum are a bit less secure because they might have 
 // experimental features, but also because they are replaced often and so
 // they have a shorter chain. How shorter?
-
+require('dotenv').config();
+const ethers = require("ethers");
 // Connect to the Goerli test net, get the latest block number and print
 // the difference in chain length with mainnet.
 
 const goerliInfuraUrl = `${process.env.INFURA_GOERLI}${providerKey}`;
-// console.log(goerliInfuraUrl);
+console.log(goerliInfuraUrl);
 const goerliProvider = new ethers.JsonRpcProvider(goerliInfuraUrl);
 
 
